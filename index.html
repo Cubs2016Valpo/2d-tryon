@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2D Avatar Try-On</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #avatar-container {
+      position: relative;
+      width: 300px;
+      height: 500px;
+      margin: 0 auto 20px;
+    }
+    #avatar-base, #avatar-clothes {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #avatar-base {
+      background: #888; /* plain grey base */
+      border-radius: 20px;
+    }
+    select {
+      padding: 5px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>2D Avatar Try-On</h1>
+
+  <div id="avatar-container">
+    <div id="avatar-base"></div>
+    <img id="avatar-clothes" src="" alt="" />
+  </div>
+
+  <label for="clothes-select">Choose Clothes:</label>
+  <select id="clothes-select">
+    <option value="">--None--</option>
+    <option value="shirt1.png">Shirt 1</option>
+    <option value="shirt2.png">Shirt 2</option>
+  </select>
+
+  <script>
+    const clothesSelect = document.getElementById('clothes-select');
+    const avatarClothes = document.getElementById('avatar-clothes');
+
+    clothesSelect.addEventListener('change', () => {
+      const selected = clothesSelect.value;
+      if (selected) {
+        avatarClothes.src = selected;
+      } else {
+        avatarClothes.src = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
