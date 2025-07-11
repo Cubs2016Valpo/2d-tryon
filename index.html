@@ -8,20 +8,34 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      background: white;
       margin: 20px;
     }
+
     #avatar-container {
       position: relative;
       width: 300px;
       height: 500px;
       margin: 0 auto 20px;
+      border: 1px solid #ccc;
+      background: #f8f8f8;
     }
-    #avatar-base, #avatar-clothes {
+
+    #avatar-base,
+    #avatar-clothes {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      pointer-events: none;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -30,30 +44,13 @@
   <h1>2D Avatar Try-On</h1>
 
   <div id="avatar-container">
-    <img id="avatar-base" src="your-silhouette-file.png" alt="Avatar Base" />
-    <img id="avatar-clothes" src="" alt="Avatar Clothes" />
+    <!-- UPDATE THIS FILENAME BELOW with the correct name of your uploaded base avatar -->
+    <img id="avatar-base" src="avatar_silhouette.png" alt="Avatar Base" />
+    <img id="avatar-clothes" src="" alt="Clothes" />
   </div>
 
-  <label for="clothes-select">Choose Clothes:</label>
+  <label for="clothes-select">Choose Clothes:</label><br>
   <select id="clothes-select">
-    <option value="">--None--</option>
+    <option value="">-- None --</option>
     <option value="shirt1.png">Shirt 1</option>
-    <option value="shirt2.png">Shirt 2</option>
-  </select>
-
-  <script>
-    const clothesSelect = document.getElementById('clothes-select');
-    const avatarClothes = document.getElementById('avatar-clothes');
-
-    clothesSelect.addEventListener('change', () => {
-      const selected = clothesSelect.value;
-      if (selected) {
-        avatarClothes.src = selected;
-      } else {
-        avatarClothes.src = '';
-      }
-    });
-  </script>
-
-</body>
-</html>
+    <option value="shirt2.png
